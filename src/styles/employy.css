@@ -1,0 +1,8 @@
+.list_container{
+    display: flex;
+}
+.list_container img{
+width: 200px;
+height: 300px;
+margin-right: 20px;
+}
