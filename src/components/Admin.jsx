@@ -1,4 +1,24 @@
+import axios from "axios";
+import { useState } from "react";
+
 export const Admin = () => {
+    const [regData , setRegdata] = useState({});
+
+    const handleChange = e =>{
+      const {name,value} = e.target;
+      setRegdata({
+        ...regData,
+        [name]:value,
+      });
+    };
+
+    const handleSubmit = async e =>{
+      e.preventDefault();
+      const {data} = await axios.post(
+        "http://localhost:8080/employee",
+        regData
+      );
+    };
     return (
       <form className="createEmployee">
         <input type="text" placeholder="Employee Name" name="employee_name" />
